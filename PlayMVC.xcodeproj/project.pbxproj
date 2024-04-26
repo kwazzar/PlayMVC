@@ -9,21 +9,32 @@
 /* Begin PBXBuildFile section */
 		E30FC4192BDBAB0D00464D32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FC4182BDBAB0D00464D32 /* AppDelegate.swift */; };
 		E30FC41B2BDBAB0D00464D32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FC41A2BDBAB0D00464D32 /* SceneDelegate.swift */; };
-		E30FC41D2BDBAB0D00464D32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FC41C2BDBAB0D00464D32 /* ViewController.swift */; };
+		E30FC41D2BDBAB0D00464D32 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FC41C2BDBAB0D00464D32 /* MainVC.swift */; };
 		E30FC4202BDBAB0D00464D32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30FC41E2BDBAB0D00464D32 /* Main.storyboard */; };
 		E30FC4222BDBAB1300464D32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E30FC4212BDBAB1300464D32 /* Assets.xcassets */; };
 		E30FC4252BDBAB1300464D32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30FC4232BDBAB1300464D32 /* LaunchScreen.storyboard */; };
+		E30FC42D2BDBACAB00464D32 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FC42C2BDBACAB00464D32 /* PlayView.swift */; };
+		E34630E12BDBE4E60062376D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34630E02BDBE4E50062376D /* Extensions.swift */; };
+		E34630E42BDBE7C80062376D /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34630E22BDBE7C80062376D /* SecondVC.swift */; };
+		E34630E52BDBE7C80062376D /* SecondVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34630E32BDBE7C80062376D /* SecondVC.xib */; };
+		E34630E82BDBE9FB0062376D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E34630E72BDBE9FB0062376D /* Alamofire */; };
+		E3497B6F2BDC393500179232 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3497B6E2BDC393500179232 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E30FC4152BDBAB0D00464D32 /* PlayMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E30FC4182BDBAB0D00464D32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E30FC41A2BDBAB0D00464D32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E30FC41C2BDBAB0D00464D32 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E30FC41C2BDBAB0D00464D32 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		E30FC41F2BDBAB0D00464D32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E30FC4212BDBAB1300464D32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E30FC4242BDBAB1300464D32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E30FC4262BDBAB1300464D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E30FC42C2BDBACAB00464D32 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
+		E34630E02BDBE4E50062376D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E34630E22BDBE7C80062376D /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
+		E34630E32BDBE7C80062376D /* SecondVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondVC.xib; sourceTree = "<group>"; };
+		E3497B6E2BDC393500179232 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E34630E82BDBE9FB0062376D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +70,12 @@
 			children = (
 				E30FC4182BDBAB0D00464D32 /* AppDelegate.swift */,
 				E30FC41A2BDBAB0D00464D32 /* SceneDelegate.swift */,
-				E30FC41C2BDBAB0D00464D32 /* ViewController.swift */,
+				E30FC41C2BDBAB0D00464D32 /* MainVC.swift */,
+				E34630E22BDBE7C80062376D /* SecondVC.swift */,
+				E34630E32BDBE7C80062376D /* SecondVC.xib */,
+				E30FC42C2BDBACAB00464D32 /* PlayView.swift */,
+				E3497B6E2BDC393500179232 /* Model.swift */,
+				E34630E02BDBE4E50062376D /* Extensions.swift */,
 				E30FC41E2BDBAB0D00464D32 /* Main.storyboard */,
 				E30FC4212BDBAB1300464D32 /* Assets.xcassets */,
 				E30FC4232BDBAB1300464D32 /* LaunchScreen.storyboard */,
@@ -83,6 +100,9 @@
 			dependencies = (
 			);
 			name = PlayMVC;
+			packageProductDependencies = (
+				E34630E72BDBE9FB0062376D /* Alamofire */,
+			);
 			productName = PlayMVC;
 			productReference = E30FC4152BDBAB0D00464D32 /* PlayMVC.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +131,9 @@
 				Base,
 			);
 			mainGroup = E30FC40C2BDBAB0D00464D32;
+			packageReferences = (
+				E34630E62BDBE9FB0062376D /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = E30FC4162BDBAB0D00464D32 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +150,7 @@
 			files = (
 				E30FC4252BDBAB1300464D32 /* LaunchScreen.storyboard in Resources */,
 				E30FC4222BDBAB1300464D32 /* Assets.xcassets in Resources */,
+				E34630E52BDBE7C80062376D /* SecondVC.xib in Resources */,
 				E30FC4202BDBAB0D00464D32 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,8 +162,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E30FC41D2BDBAB0D00464D32 /* ViewController.swift in Sources */,
+				E3497B6F2BDC393500179232 /* Model.swift in Sources */,
+				E34630E12BDBE4E60062376D /* Extensions.swift in Sources */,
+				E30FC41D2BDBAB0D00464D32 /* MainVC.swift in Sources */,
 				E30FC4192BDBAB0D00464D32 /* AppDelegate.swift in Sources */,
+				E30FC42D2BDBACAB00464D32 /* PlayView.swift in Sources */,
+				E34630E42BDBE7C80062376D /* SecondVC.swift in Sources */,
 				E30FC41B2BDBAB0D00464D32 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +386,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E34630E62BDBE9FB0062376D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E34630E72BDBE9FB0062376D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E34630E62BDBE9FB0062376D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E30FC40D2BDBAB0D00464D32 /* Project object */;
 }
