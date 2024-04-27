@@ -14,13 +14,15 @@ class InfoCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        titleInfoCellLabel.numberOfLines = 0
+                detailInfoCellLabel.numberOfLines = 0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+
     }
 
 }

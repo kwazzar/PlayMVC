@@ -19,6 +19,9 @@
 		E34630E82BDBE9FB0062376D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E34630E72BDBE9FB0062376D /* Alamofire */; };
 		E3497B6F2BDC393500179232 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3497B6E2BDC393500179232 /* Model.swift */; };
 		E34DA2BF2BDD4A6D00ACF198 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34DA2BE2BDD4A6D00ACF198 /* InfoCell.xib */; };
+		E34DA2C32BDD504600ACF198 /* ThirdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34DA2C22BDD504600ACF198 /* ThirdVC.swift */; };
+		E34DA2C62BDD5DBE00ACF198 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34DA2C52BDD5DBD00ACF198 /* ButtonCell.xib */; };
+		E34DA2C82BDD5DE400ACF198 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34DA2C72BDD5DE400ACF198 /* ButtonCell.swift */; };
 		E38399442BDD0E2900B3AD28 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38399432BDD0E2900B3AD28 /* NetworkManager.swift */; };
 		E383994A2BDD257500B3AD28 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38399492BDD257500B3AD28 /* InfoCell.swift */; };
 		E3FE6DEB2BDD49B40061D387 /* SecondVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3FE6DEA2BDD49B40061D387 /* SecondVC.xib */; };
@@ -38,6 +41,9 @@
 		E34630E22BDBE7C80062376D /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
 		E3497B6E2BDC393500179232 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E34DA2BE2BDD4A6D00ACF198 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
+		E34DA2C22BDD504600ACF198 /* ThirdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVC.swift; sourceTree = "<group>"; };
+		E34DA2C52BDD5DBD00ACF198 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
+		E34DA2C72BDD5DE400ACF198 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		E38399432BDD0E2900B3AD28 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E38399492BDD257500B3AD28 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		E3FE6DEA2BDD49B40061D387 /* SecondVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondVC.xib; sourceTree = "<group>"; };
@@ -116,11 +122,21 @@
 		E34DA2C12BDD4B6400ACF198 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
-				E33CA03B2BDD4868009AE2B8 /* Xib and Storyboard */,
+				E34DA2C42BDD5D5B00ACF198 /* Cell from ThirdVC */,
 				E3FE6DEC2BDD49F90061D387 /* Cell from SecondVC */,
+				E33CA03B2BDD4868009AE2B8 /* Xib and Storyboard */,
 				E383994B2BDD3F4F00B3AD28 /* Controllers */,
 			);
 			path = Flow;
+			sourceTree = "<group>";
+		};
+		E34DA2C42BDD5D5B00ACF198 /* Cell from ThirdVC */ = {
+			isa = PBXGroup;
+			children = (
+				E34DA2C52BDD5DBD00ACF198 /* ButtonCell.xib */,
+				E34DA2C72BDD5DE400ACF198 /* ButtonCell.swift */,
+			);
+			path = "Cell from ThirdVC";
 			sourceTree = "<group>";
 		};
 		E383994B2BDD3F4F00B3AD28 /* Controllers */ = {
@@ -128,6 +144,7 @@
 			children = (
 				E30FC41C2BDBAB0D00464D32 /* MainVC.swift */,
 				E34630E22BDBE7C80062376D /* SecondVC.swift */,
+				E34DA2C22BDD504600ACF198 /* ThirdVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -224,6 +241,7 @@
 				E3FE6DEB2BDD49B40061D387 /* SecondVC.xib in Resources */,
 				E34DA2BF2BDD4A6D00ACF198 /* InfoCell.xib in Resources */,
 				E30FC4252BDBAB1300464D32 /* LaunchScreen.storyboard in Resources */,
+				E34DA2C62BDD5DBE00ACF198 /* ButtonCell.xib in Resources */,
 				E30FC4222BDBAB1300464D32 /* Assets.xcassets in Resources */,
 				E30FC4202BDBAB0D00464D32 /* Main.storyboard in Resources */,
 			);
@@ -240,9 +258,11 @@
 				E34630E12BDBE4E60062376D /* Extensions.swift in Sources */,
 				E30FC41D2BDBAB0D00464D32 /* MainVC.swift in Sources */,
 				E30FC4192BDBAB0D00464D32 /* AppDelegate.swift in Sources */,
+				E34DA2C32BDD504600ACF198 /* ThirdVC.swift in Sources */,
 				E38399442BDD0E2900B3AD28 /* NetworkManager.swift in Sources */,
 				E383994A2BDD257500B3AD28 /* InfoCell.swift in Sources */,
 				E30FC42D2BDBACAB00464D32 /* TimerObject.swift in Sources */,
+				E34DA2C82BDD5DE400ACF198 /* ButtonCell.swift in Sources */,
 				E34630E42BDBE7C80062376D /* SecondVC.swift in Sources */,
 				E30FC41B2BDBAB0D00464D32 /* SceneDelegate.swift in Sources */,
 			);
