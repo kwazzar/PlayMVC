@@ -5,6 +5,14 @@
 //  Created by Quasar on 26.04.2024.
 //
 
+//MARK: FIRST View
+enum ButtonState {
+    case play
+    case pause
+
+}
+
+//MARK: Second View
 struct IPAddressInfo: Codable {
     let `as`: String
     let org: String

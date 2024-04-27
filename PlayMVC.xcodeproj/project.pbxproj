@@ -13,12 +13,15 @@
 		E30FC4202BDBAB0D00464D32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30FC41E2BDBAB0D00464D32 /* Main.storyboard */; };
 		E30FC4222BDBAB1300464D32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E30FC4212BDBAB1300464D32 /* Assets.xcassets */; };
 		E30FC4252BDBAB1300464D32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30FC4232BDBAB1300464D32 /* LaunchScreen.storyboard */; };
-		E30FC42D2BDBACAB00464D32 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FC42C2BDBACAB00464D32 /* PlayView.swift */; };
+		E30FC42D2BDBACAB00464D32 /* TimerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FC42C2BDBACAB00464D32 /* TimerObject.swift */; };
 		E34630E12BDBE4E60062376D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34630E02BDBE4E50062376D /* Extensions.swift */; };
 		E34630E42BDBE7C80062376D /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34630E22BDBE7C80062376D /* SecondVC.swift */; };
-		E34630E52BDBE7C80062376D /* SecondVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34630E32BDBE7C80062376D /* SecondVC.xib */; };
 		E34630E82BDBE9FB0062376D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E34630E72BDBE9FB0062376D /* Alamofire */; };
 		E3497B6F2BDC393500179232 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3497B6E2BDC393500179232 /* Model.swift */; };
+		E34DA2BF2BDD4A6D00ACF198 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34DA2BE2BDD4A6D00ACF198 /* InfoCell.xib */; };
+		E38399442BDD0E2900B3AD28 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38399432BDD0E2900B3AD28 /* NetworkManager.swift */; };
+		E383994A2BDD257500B3AD28 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38399492BDD257500B3AD28 /* InfoCell.swift */; };
+		E3FE6DEB2BDD49B40061D387 /* SecondVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3FE6DEA2BDD49B40061D387 /* SecondVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,11 +33,14 @@
 		E30FC4212BDBAB1300464D32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E30FC4242BDBAB1300464D32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E30FC4262BDBAB1300464D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E30FC42C2BDBACAB00464D32 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
+		E30FC42C2BDBACAB00464D32 /* TimerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerObject.swift; sourceTree = "<group>"; };
 		E34630E02BDBE4E50062376D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E34630E22BDBE7C80062376D /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
-		E34630E32BDBE7C80062376D /* SecondVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondVC.xib; sourceTree = "<group>"; };
 		E3497B6E2BDC393500179232 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		E34DA2BE2BDD4A6D00ACF198 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
+		E38399432BDD0E2900B3AD28 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E38399492BDD257500B3AD28 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		E3FE6DEA2BDD49B40061D387 /* SecondVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,20 +74,87 @@
 		E30FC4172BDBAB0D00464D32 /* PlayMVC */ = {
 			isa = PBXGroup;
 			children = (
-				E30FC4182BDBAB0D00464D32 /* AppDelegate.swift */,
-				E30FC41A2BDBAB0D00464D32 /* SceneDelegate.swift */,
-				E30FC41C2BDBAB0D00464D32 /* MainVC.swift */,
-				E34630E22BDBE7C80062376D /* SecondVC.swift */,
-				E34630E32BDBE7C80062376D /* SecondVC.xib */,
-				E30FC42C2BDBACAB00464D32 /* PlayView.swift */,
-				E3497B6E2BDC393500179232 /* Model.swift */,
-				E34630E02BDBE4E50062376D /* Extensions.swift */,
-				E30FC41E2BDBAB0D00464D32 /* Main.storyboard */,
-				E30FC4212BDBAB1300464D32 /* Assets.xcassets */,
-				E30FC4232BDBAB1300464D32 /* LaunchScreen.storyboard */,
-				E30FC4262BDBAB1300464D32 /* Info.plist */,
+				E34DA2C12BDD4B6400ACF198 /* Flow */,
+				E33CA03A2BDD474E009AE2B8 /* Supporting filles */,
+				E383994D2BDD41CE00B3AD28 /* Models */,
+				E383994C2BDD41C600B3AD28 /* Network */,
+				E34DA2C02BDD4B0100ACF198 /* Objects and Extensions */,
 			);
 			path = PlayMVC;
+			sourceTree = "<group>";
+		};
+		E33CA03A2BDD474E009AE2B8 /* Supporting filles */ = {
+			isa = PBXGroup;
+			children = (
+				E30FC4212BDBAB1300464D32 /* Assets.xcassets */,
+				E30FC4262BDBAB1300464D32 /* Info.plist */,
+				E30FC4182BDBAB0D00464D32 /* AppDelegate.swift */,
+				E30FC41A2BDBAB0D00464D32 /* SceneDelegate.swift */,
+			);
+			path = "Supporting filles";
+			sourceTree = "<group>";
+		};
+		E33CA03B2BDD4868009AE2B8 /* Xib and Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E3FE6DEA2BDD49B40061D387 /* SecondVC.xib */,
+				E30FC41E2BDBAB0D00464D32 /* Main.storyboard */,
+				E30FC4232BDBAB1300464D32 /* LaunchScreen.storyboard */,
+			);
+			path = "Xib and Storyboard";
+			sourceTree = "<group>";
+		};
+		E34DA2C02BDD4B0100ACF198 /* Objects and Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E30FC42C2BDBACAB00464D32 /* TimerObject.swift */,
+				E34630E02BDBE4E50062376D /* Extensions.swift */,
+			);
+			path = "Objects and Extensions";
+			sourceTree = "<group>";
+		};
+		E34DA2C12BDD4B6400ACF198 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				E33CA03B2BDD4868009AE2B8 /* Xib and Storyboard */,
+				E3FE6DEC2BDD49F90061D387 /* Cell from SecondVC */,
+				E383994B2BDD3F4F00B3AD28 /* Controllers */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		E383994B2BDD3F4F00B3AD28 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E30FC41C2BDBAB0D00464D32 /* MainVC.swift */,
+				E34630E22BDBE7C80062376D /* SecondVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E383994C2BDD41C600B3AD28 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E38399432BDD0E2900B3AD28 /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E383994D2BDD41CE00B3AD28 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E3497B6E2BDC393500179232 /* Model.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E3FE6DEC2BDD49F90061D387 /* Cell from SecondVC */ = {
+			isa = PBXGroup;
+			children = (
+				E34DA2BE2BDD4A6D00ACF198 /* InfoCell.xib */,
+				E38399492BDD257500B3AD28 /* InfoCell.swift */,
+			);
+			path = "Cell from SecondVC";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,9 +221,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3FE6DEB2BDD49B40061D387 /* SecondVC.xib in Resources */,
+				E34DA2BF2BDD4A6D00ACF198 /* InfoCell.xib in Resources */,
 				E30FC4252BDBAB1300464D32 /* LaunchScreen.storyboard in Resources */,
 				E30FC4222BDBAB1300464D32 /* Assets.xcassets in Resources */,
-				E34630E52BDBE7C80062376D /* SecondVC.xib in Resources */,
 				E30FC4202BDBAB0D00464D32 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,7 +240,9 @@
 				E34630E12BDBE4E60062376D /* Extensions.swift in Sources */,
 				E30FC41D2BDBAB0D00464D32 /* MainVC.swift in Sources */,
 				E30FC4192BDBAB0D00464D32 /* AppDelegate.swift in Sources */,
-				E30FC42D2BDBACAB00464D32 /* PlayView.swift in Sources */,
+				E38399442BDD0E2900B3AD28 /* NetworkManager.swift in Sources */,
+				E383994A2BDD257500B3AD28 /* InfoCell.swift in Sources */,
+				E30FC42D2BDBACAB00464D32 /* TimerObject.swift in Sources */,
 				E34630E42BDBE7C80062376D /* SecondVC.swift in Sources */,
 				E30FC41B2BDBAB0D00464D32 /* SceneDelegate.swift in Sources */,
 			);
@@ -317,7 +393,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6XK3NFM9Y7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PlayMVC/Info.plist;
+				INFOPLIST_FILE = "PlayMVC/Supporting filles/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -345,7 +421,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6XK3NFM9Y7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PlayMVC/Info.plist;
+				INFOPLIST_FILE = "PlayMVC/Supporting filles/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

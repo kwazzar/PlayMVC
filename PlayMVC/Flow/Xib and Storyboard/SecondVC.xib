@@ -11,8 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SecondVC" customModule="PlayMVC" customModuleProvider="target">
             <connections>
-                <outlet property="infoLabel" destination="Oah-iz-1Rm" id="CyF-8A-uqY"/>
                 <outlet property="mapView" destination="ZUe-RI-km6" id="xYx-qZ-tJP"/>
+                <outlet property="tableView" destination="LGT-fC-7Oa" id="Fe8-Do-jGn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,33 +21,33 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZUe-RI-km6">
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZUe-RI-km6">
                     <rect key="frame" x="0.0" y="59" width="393" height="200"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="HgI-yl-DGU"/>
                     </constraints>
                     <standardMapConfiguration key="preferredConfiguration"/>
                 </mapView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oah-iz-1Rm">
-                    <rect key="frame" x="0.0" y="267" width="393" height="501"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LGT-fC-7Oa">
+                    <rect key="frame" x="0.0" y="267" width="393" height="271"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="501" id="z8e-SW-bwu"/>
+                        <constraint firstAttribute="height" constant="271" id="kFR-wa-8ur"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Oah-iz-1Rm" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3z5-Uz-oza"/>
-                <constraint firstItem="ZUe-RI-km6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jdE-jk-kfb"/>
-                <constraint firstItem="Oah-iz-1Rm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="muk-w9-eiC"/>
-                <constraint firstItem="Oah-iz-1Rm" firstAttribute="top" secondItem="ZUe-RI-km6" secondAttribute="bottom" constant="8" symbolic="YES" id="pyv-zw-xCs"/>
-                <constraint firstItem="Oah-iz-1Rm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="yEp-Oc-FYI"/>
+                <constraint firstItem="ZUe-RI-km6" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3P6-sb-KHW"/>
+                <constraint firstItem="LGT-fC-7Oa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BHO-7R-Yth"/>
+                <constraint firstItem="LGT-fC-7Oa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="HJ4-uJ-Ztn"/>
+                <constraint firstItem="ZUe-RI-km6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="dEh-8B-M8G"/>
+                <constraint firstItem="ZUe-RI-km6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lhX-kb-S6W"/>
+                <constraint firstItem="LGT-fC-7Oa" firstAttribute="top" secondItem="ZUe-RI-km6" secondAttribute="bottom" constant="8" symbolic="YES" id="qPH-Cn-0u6"/>
+                <constraint firstItem="LGT-fC-7Oa" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="sZC-wO-2hl"/>
             </constraints>
-            <point key="canvasLocation" x="49.618320610687022" y="20.422535211267608"/>
+            <point key="canvasLocation" x="-547.32824427480909" y="24.647887323943664"/>
         </view>
     </objects>
     <resources>

@@ -1,5 +1,5 @@
 //
-//  PlayView.swift
+//  TimerObject.swift
 //  PlayMVC
 //
 //  Created by Quasar on 26.04.2024.
@@ -8,10 +8,7 @@
 import Foundation
 import UIKit
 
-enum ButtonState {
-    case play
-    case pause
-}
+
 
 final class TimerObject {
     private var timer: Timer? = nil

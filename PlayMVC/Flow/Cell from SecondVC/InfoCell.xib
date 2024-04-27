@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InfoCell" rowHeight="51" id="gvg-Jl-O8i" customClass="InfoCell" customModule="PlayMVC" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="374" height="51"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gvg-Jl-O8i" id="6yi-0w-IgE">
+                <rect key="frame" x="0.0" y="0.0" width="374" height="51"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyY-rx-5SK">
+                        <rect key="frame" x="191" y="0.0" width="183" height="51"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="183" id="mpj-nC-7Du"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCy-Rn-sGC">
+                        <rect key="frame" x="0.0" y="0.0" width="183" height="51"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="183" id="0de-nV-fpD"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bCy-Rn-sGC" firstAttribute="leading" secondItem="6yi-0w-IgE" secondAttribute="leading" id="0Se-qc-RPh"/>
+                    <constraint firstItem="eyY-rx-5SK" firstAttribute="top" secondItem="6yi-0w-IgE" secondAttribute="top" id="6mR-Kp-43E"/>
+                    <constraint firstItem="bCy-Rn-sGC" firstAttribute="top" secondItem="6yi-0w-IgE" secondAttribute="top" id="Ct8-ew-Shv"/>
+                    <constraint firstAttribute="bottom" secondItem="bCy-Rn-sGC" secondAttribute="bottom" id="Y2j-WU-EBe"/>
+                    <constraint firstAttribute="bottom" secondItem="eyY-rx-5SK" secondAttribute="bottom" id="jqS-FH-oYc"/>
+                    <constraint firstAttribute="trailing" secondItem="eyY-rx-5SK" secondAttribute="trailing" id="v1L-13-WWN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="detailInfoCellLabel" destination="eyY-rx-5SK" id="FFQ-oa-nxQ"/>
+                <outlet property="titleInfoCellLabel" destination="bCy-Rn-sGC" id="5N3-IH-GL6"/>
+            </connections>
+            <point key="canvasLocation" x="131.29770992366412" y="-125"/>
+        </tableViewCell>
+    </objects>
+</document>

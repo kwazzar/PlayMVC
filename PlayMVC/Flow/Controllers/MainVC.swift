@@ -16,20 +16,24 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addSubview(playButton)
-        view.addSubview(timer.timerLabel)
-        view.addSubview(mapButton)
+        setupViews()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
+        playButton.center = view.center
         let labelWidth: CGFloat = 200
         let labelHeight: CGFloat = 50
         let xPosition = (self.view.frame.width - labelWidth) / 2
         timer.timerLabel.frame = CGRect(x: xPosition, y: 40, width: labelWidth, height: labelHeight)
-        playButton.center = view.center
         pulsate(UIElement: playButton)
+    }
+
+    func setupViews() {
+        view.addSubview(playButton)
+        view.addSubview(timer.timerLabel)
+        view.addSubview(mapButton)
     }
 
 
@@ -37,27 +41,19 @@ class MainVC: UIViewController {
     lazy var playButton: UIButton = {
         let button = UIButton(type: .custom)
         button.frame = CGRect(x: 0, y: 10, width: 140, height: 140)
-        button.center = view.center
         button.tintColor = .white
         button.backgroundColor = .darkGray
         button.layer.cornerRadius = button.frame.size.width / 2
         button.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
-        
-
-        if let image = UIImage(systemName: "play.fill") {
-            let largeConfig = UIImage.SymbolConfiguration(pointSize: 70, weight: .bold, scale: .large)
-            let largePlayImage = image.applyingSymbolConfiguration(largeConfig)
-            button.setImage(largePlayImage, for: .normal)
-        }
+        button.setLargeImage(systemName: "play.fill")
         return button
     }()
 
 
     lazy var mapButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.frame = CGRect(x: 30, y: 0, width: 70, height: 70)
+        button.frame = CGRect(x: 0, y: 0, width: 70, height: 70)
         button.center = view.center
-//        button.tintColor = .white
         button.backgroundColor = .red
         button.layer.cornerRadius = button.frame.size.width / 2
         button.addTarget(self, action: #selector(mapEnter), for: .touchUpInside)
@@ -66,10 +62,15 @@ class MainVC: UIViewController {
     }()
 }
 
+extension MainVC {
+
+}
+
 @objc extension MainVC {
 
     func mapEnter() {
         let secondViewController = SecondVC()
+        secondViewController.modalPresentationStyle = .fullScreen
         self.present(secondViewController, animated: true, completion: nil)
 
     }
