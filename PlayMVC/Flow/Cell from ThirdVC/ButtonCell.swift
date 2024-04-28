@@ -18,7 +18,7 @@ class ButtonCell: UITableViewCell {
 
     private lazy var rateButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .green
+        button.backgroundColor = .darkGray
         button.setTitle("Rate App", for: .normal)
         button.addTarget(self, action: #selector(rateButtonTapped), for: .touchUpInside)
         return button
