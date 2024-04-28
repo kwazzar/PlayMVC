@@ -24,6 +24,7 @@
 		E34DA2C82BDD5DE400ACF198 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34DA2C72BDD5DE400ACF198 /* ButtonCell.swift */; };
 		E38399442BDD0E2900B3AD28 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38399432BDD0E2900B3AD28 /* NetworkManager.swift */; };
 		E383994A2BDD257500B3AD28 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38399492BDD257500B3AD28 /* InfoCell.swift */; };
+		E3F3A1112BDE54D4005B61FA /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F3A1102BDE54D4005B61FA /* CacheManager.swift */; };
 		E3FE6DEB2BDD49B40061D387 /* SecondVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3FE6DEA2BDD49B40061D387 /* SecondVC.xib */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		E34DA2C72BDD5DE400ACF198 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		E38399432BDD0E2900B3AD28 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E38399492BDD257500B3AD28 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		E3F3A1102BDE54D4005B61FA /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		E3FE6DEA2BDD49B40061D387 /* SecondVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 			children = (
 				E30FC42C2BDBACAB00464D32 /* TimerObject.swift */,
 				E34630E02BDBE4E50062376D /* Extensions.swift */,
+				E3F3A1102BDE54D4005B61FA /* CacheManager.swift */,
 			);
 			path = "Objects and Extensions";
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				E34630E12BDBE4E60062376D /* Extensions.swift in Sources */,
 				E30FC41D2BDBAB0D00464D32 /* MainVC.swift in Sources */,
 				E30FC4192BDBAB0D00464D32 /* AppDelegate.swift in Sources */,
+				E3F3A1112BDE54D4005B61FA /* CacheManager.swift in Sources */,
 				E34DA2C32BDD504600ACF198 /* ThirdVC.swift in Sources */,
 				E38399442BDD0E2900B3AD28 /* NetworkManager.swift in Sources */,
 				E383994A2BDD257500B3AD28 /* InfoCell.swift in Sources */,

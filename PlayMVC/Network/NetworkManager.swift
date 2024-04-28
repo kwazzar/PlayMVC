@@ -17,12 +17,20 @@ class NetworkManager {
         AF.request(endpoint, method: .get).responseDecodable(of: T.self) { (response: AFDataResponse<T>) in
             switch response.result {
             case .success(let value):
+                // Сохраняем данные в кеше
+                CacheManager.shared?.cacheData(value, for: endpoint)
                 completion(value)
             case .failure(let error):
                 print(error)
-                completion(nil)
+                // Если есть ошибка сети, пытаемся загрузить данные из кеша
+                if let cachedData: T = CacheManager.shared?.getCachedData(for: endpoint, decodeType: T.self) {
+                    completion(cachedData)
+                } else {
+                    completion(nil)
+                }
             }
         }
     }
+
 
 }

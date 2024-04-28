@@ -16,7 +16,7 @@ protocol ButtonCellDelegate: AnyObject {
 class ButtonCell: UITableViewCell {
     weak var delegate: ButtonCellDelegate?
 
-    let rateButton: UIButton = {
+    private lazy var rateButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .green
         button.setTitle("Rate App", for: .normal)
@@ -24,7 +24,7 @@ class ButtonCell: UITableViewCell {
         return button
     }()
 
-    let shareButton: UIButton = {
+    private lazy var shareButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .black
         button.setTitle("Share App", for: .normal)
@@ -32,7 +32,7 @@ class ButtonCell: UITableViewCell {
         return button
     }()
 
-    let contactButton: UIButton = {
+    private lazy var contactButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .red
         button.setTitle("Contact Us", for: .normal)

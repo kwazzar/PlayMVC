@@ -8,20 +8,35 @@
 import UIKit
 import MapKit
 
+
 class SecondVC: UIViewController {
 
     private var ipInfo: IPAddressInfo?
     private let endpoint = "http://ip-api.com/json/?fields=66846719"
     private var infoArray: [(String, String)] = []
 
-    lazy var activityIndicator: UIActivityIndicatorView = {
+    init() {
+          super.init(nibName: "SecondVC", bundle: nil)
+      }
+
+    required init?(coder aDecoder: NSCoder) {
+           super.init(coder: aDecoder)
+       }
+
+   private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        return refreshControl
+    }()
+
+   private lazy var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.color = .darkGray
         indicator.hidesWhenStopped = true
         return indicator
     }()
 
-    lazy var reloadButton: UIButton = {
+    private lazy var reloadButton: UIButton = {
         let button = UIButton(type: .custom)
         button.frame = CGRect(x: 0, y: 0, width: 140, height: 140)
         button.tintColor = .white
@@ -35,21 +50,14 @@ class SecondVC: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
 
-
-    required init?(coder aDecoder: NSCoder) {
-           super.init(coder: aDecoder)
-       }
-
-       init() {
-           super.init(nibName: "SecondVC", bundle: nil)
-       }
-
        override func viewDidLoad() {
            super.viewDidLoad()
+
            setupTableView()
            setupActivityIndicator()
            setupReloadButton()
            reloadData()
+           tableView.addSubview(refreshControl)
        }
 
        private func setupTableView() {
@@ -104,25 +112,48 @@ class SecondVC: UIViewController {
            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
            self.mapView.setRegion(region, animated: true)
        }
+
+       func startAnima() {
+           self.activityIndicator.startAnimating()
+           self.mapView.isHidden = true
+           self.tableView.isHidden = true
+       }
+
+       func stopAnima() {
+           self.mapView.isHidden = false
+           self.tableView.isHidden = false
+           self.activityIndicator.stopAnimating()
+       }
+
    }
 
    //MARK: reloadData
    @objc extension SecondVC {
+
        func reloadData() {
-           NetworkManager.shared.loadData(endpoint: endpoint, decodeType: IPAddressInfo.self) { (ipInfo) in
-               self.activityIndicator.startAnimating()
-               self.mapView.isHidden = true
-               self.tableView.isHidden = true
+           NetworkManager.shared.loadData(endpoint: endpoint, decodeType: IPAddressInfo.self) { [weak self] (ipInfo) in
+               guard let strongSelf = self else { return }
+               strongSelf.startAnima()
+
                if let ipInfo = ipInfo {
                    print("Decoded data: \(ipInfo)")
+                   CacheManager.shared?.cacheData(ipInfo, for: strongSelf.endpoint)
                    DispatchQueue.main.async {
-                       self.mapView.isHidden = false
-                       self.tableView.isHidden = false
-                       self.updateUI(with: ipInfo)
-                       self.activityIndicator.stopAnimating()
+                       strongSelf.updateUI(with: ipInfo)
+                       strongSelf.stopAnima()
+                   }
+               } else {
+                   if let cachedIPInfo: IPAddressInfo = CacheManager.shared?.getCachedData(for: strongSelf.endpoint, decodeType: IPAddressInfo.self) {
+                       strongSelf.updateUI(with: cachedIPInfo)
+                    print("get Cached")
                    }
                }
            }
+       }
+       //MARK: Refresh
+       func handleRefresh(_ refreshControl: UIRefreshControl) {
+           reloadData()
+           refreshControl.endRefreshing()
        }
    }
 

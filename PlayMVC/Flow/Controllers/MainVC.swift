@@ -13,7 +13,7 @@ class MainVC: UIViewController {
     private var timer = TimerObject()
     private var buttonState: ButtonState = .play
 
-    lazy var playButton: UIButton = {
+   private lazy var playButton: UIButton = {
         let button = UIButton(type: .custom)
         button.frame = CGRect(x: 0, y: 10, width: 140, height: 140)
         button.tintColor = .white
@@ -25,7 +25,7 @@ class MainVC: UIViewController {
     }()
 
 
-    lazy var mapButton: UIButton = {
+    private lazy var mapButton: UIButton = {
         let button = UIButton(type: .custom)
         button.frame = CGRect(x: 0, y: 0, width: 70, height: 70)
         button.setTitle("Map", for: .normal)
@@ -36,7 +36,7 @@ class MainVC: UIViewController {
         return button
     }()
 
-    lazy var rateMenuButton: UIButton = {
+    private lazy var rateMenuButton: UIButton = {
         let button = UIButton(type: .custom)
         button.frame = CGRect(x: 0, y: 0, width: 70, height: 70)
         button.setTitle("Share", for: .normal)
