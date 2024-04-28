@@ -8,7 +8,7 @@
 import UIKit
 import StoreKit
 
-class ThirdVC: UIViewController {
+final class ThirdVC: UIViewController {
 
    private let appStoreURL = "https://www.apple.com/app-store/"
    private let contactUsURL = "https://energise.notion.site/Swift-fac45cd4d51640928ce8e7ea38552fc3"
@@ -62,7 +62,7 @@ extension ThirdVC: ButtonCellDelegate {
         contactUs()
     }
 }
-//MARK: TABLE VIEW
+//MARK: Table View
 extension ThirdVC: UITableViewDataSource, UITableViewDelegate {
     
     func setupTableView() {

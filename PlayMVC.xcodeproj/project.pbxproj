@@ -24,6 +24,7 @@
 		E34DA2C82BDD5DE400ACF198 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34DA2C72BDD5DE400ACF198 /* ButtonCell.swift */; };
 		E38399442BDD0E2900B3AD28 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38399432BDD0E2900B3AD28 /* NetworkManager.swift */; };
 		E383994A2BDD257500B3AD28 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38399492BDD257500B3AD28 /* InfoCell.swift */; };
+		E3DB92672BDEA3DD00CF3F49 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DB92662BDEA3DD00CF3F49 /* MainCoordinator.swift */; };
 		E3F3A1112BDE54D4005B61FA /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F3A1102BDE54D4005B61FA /* CacheManager.swift */; };
 		E3FE6DEB2BDD49B40061D387 /* SecondVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3FE6DEA2BDD49B40061D387 /* SecondVC.xib */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,7 @@
 		E34DA2C72BDD5DE400ACF198 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		E38399432BDD0E2900B3AD28 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E38399492BDD257500B3AD28 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		E3DB92662BDEA3DD00CF3F49 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		E3F3A1102BDE54D4005B61FA /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		E3FE6DEA2BDD49B40061D387 /* SecondVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +127,7 @@
 		E34DA2C12BDD4B6400ACF198 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				E39418A62BDEE41B00D454F7 /* Coordinator */,
 				E34DA2C42BDD5D5B00ACF198 /* Cell from ThirdVC */,
 				E3FE6DEC2BDD49F90061D387 /* Cell from SecondVC */,
 				E33CA03B2BDD4868009AE2B8 /* Xib and Storyboard */,
@@ -166,6 +169,14 @@
 				E3497B6E2BDC393500179232 /* Model.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E39418A62BDEE41B00D454F7 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E3DB92662BDEA3DD00CF3F49 /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		E3FE6DEC2BDD49F90061D387 /* Cell from SecondVC */ = {
@@ -259,6 +270,7 @@
 			files = (
 				E3497B6F2BDC393500179232 /* Model.swift in Sources */,
 				E34630E12BDBE4E60062376D /* Extensions.swift in Sources */,
+				E3DB92672BDEA3DD00CF3F49 /* MainCoordinator.swift in Sources */,
 				E30FC41D2BDBAB0D00464D32 /* MainVC.swift in Sources */,
 				E30FC4192BDBAB0D00464D32 /* AppDelegate.swift in Sources */,
 				E3F3A1112BDE54D4005B61FA /* CacheManager.swift in Sources */,

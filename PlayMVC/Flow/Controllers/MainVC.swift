@@ -24,33 +24,10 @@ class MainVC: UIViewController {
         return button
     }()
 
-
-    private lazy var mapButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.frame = CGRect(x: 0, y: 0, width: 70, height: 70)
-        button.setTitle("Map", for: .normal)
-        button.backgroundColor = .red
-        button.layer.cornerRadius = button.frame.size.width / 2
-        button.addTarget(self, action: #selector(mapEnter), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-
-    private lazy var rateMenuButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.frame = CGRect(x: 0, y: 0, width: 70, height: 70)
-        button.setTitle("Share", for: .normal)
-        button.backgroundColor = .green
-        button.layer.cornerRadius = button.frame.size.width / 2
-        button.addTarget(self, action: #selector(RateEnter), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .black
         setupViews()
     }
 
@@ -69,37 +46,11 @@ class MainVC: UIViewController {
     private func setupViews() {
         view.addSubview(playButton)
         view.addSubview(timer.timerLabel)
-        view.addSubview(mapButton)
-        view.addSubview(rateMenuButton)
-
-        NSLayoutConstraint.activate([
-              mapButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-              mapButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
-              mapButton.widthAnchor.constraint(equalToConstant: 70),
-              mapButton.heightAnchor.constraint(equalToConstant: 70),
-              rateMenuButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-                    rateMenuButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
-                    rateMenuButton.widthAnchor.constraint(equalToConstant: 70),
-                    rateMenuButton.heightAnchor.constraint(equalToConstant: 70)
-          ])
     }
 }
 
 //MARK: @objc extension
 @objc extension MainVC {
-
-    func mapEnter() {
-        let secondViewController = SecondVC()
-        secondViewController.modalPresentationStyle = .fullScreen
-        self.present(secondViewController, animated: true)
-
-    }
-
-    func RateEnter() {
-        let thirdViewController = ThirdVC()
-        thirdViewController.modalPresentationStyle = .fullScreen
-        self.present(thirdViewController, animated: true)
-    }
 
     func playButtonTapped() {
         switch buttonState {

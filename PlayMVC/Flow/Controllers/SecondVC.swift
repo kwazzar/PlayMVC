@@ -8,8 +8,7 @@
 import UIKit
 import MapKit
 
-
-class SecondVC: UIViewController {
+final class SecondVC: UIViewController {
 
     private var ipInfo: IPAddressInfo?
     private let endpoint = "http://ip-api.com/json/?fields=66846719"
@@ -52,6 +51,9 @@ class SecondVC: UIViewController {
 
        override func viewDidLoad() {
            super.viewDidLoad()
+
+           view.backgroundColor = .black
+           tableView.backgroundColor = .black
 
            setupTableView()
            setupActivityIndicator()
@@ -113,17 +115,20 @@ class SecondVC: UIViewController {
            self.mapView.setRegion(region, animated: true)
        }
 
-       func startAnima() {
+       func startAnimation() {
            self.activityIndicator.startAnimating()
            self.mapView.isHidden = true
            self.tableView.isHidden = true
+           self.reloadButton.rotate360Degrees()
        }
 
-       func stopAnima() {
+       func stopAnimation() {
            self.mapView.isHidden = false
            self.tableView.isHidden = false
            self.activityIndicator.stopAnimating()
+           self.reloadButton.layer.removeAllAnimations()
        }
+
 
    }
 
@@ -133,14 +138,14 @@ class SecondVC: UIViewController {
        func reloadData() {
            NetworkManager.shared.loadData(endpoint: endpoint, decodeType: IPAddressInfo.self) { [weak self] (ipInfo) in
                guard let strongSelf = self else { return }
-               strongSelf.startAnima()
+               strongSelf.startAnimation()
 
                if let ipInfo = ipInfo {
                    print("Decoded data: \(ipInfo)")
                    CacheManager.shared?.cacheData(ipInfo, for: strongSelf.endpoint)
                    DispatchQueue.main.async {
                        strongSelf.updateUI(with: ipInfo)
-                       strongSelf.stopAnima()
+                       strongSelf.stopAnimation()
                    }
                } else {
                    if let cachedIPInfo: IPAddressInfo = CacheManager.shared?.getCachedData(for: strongSelf.endpoint, decodeType: IPAddressInfo.self) {
