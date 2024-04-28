@@ -1,5 +1,5 @@
 //
-//  MainCoordinator.swift
+//  MainCoordinator + TabBar.swift
 //  PlayMVC
 //
 //  Created by Quasar on 28.04.2024.
