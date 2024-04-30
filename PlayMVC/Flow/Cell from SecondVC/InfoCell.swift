@@ -16,13 +16,17 @@ class InfoCell: UITableViewCell {
         super.awakeFromNib()
 
         titleInfoCellLabel.numberOfLines = 0
-                detailInfoCellLabel.numberOfLines = 0
+        detailInfoCellLabel.numberOfLines = 0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+    }
 
+    func configure(with info: (String, String)) {
+        titleInfoCellLabel.text = info.0
+        detailInfoCellLabel.text = info.1
     }
 
 }

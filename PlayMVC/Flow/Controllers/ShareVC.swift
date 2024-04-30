@@ -8,7 +8,7 @@
 import UIKit
 import StoreKit
 
-final class ThirdVC: UIViewController {
+final class ShareVC: UIViewController {
 
    private let appStoreURL = "https://www.apple.com/app-store/"
    private let contactUsURL = "https://energise.notion.site/Swift-fac45cd4d51640928ce8e7ea38552fc3"
@@ -23,33 +23,32 @@ final class ThirdVC: UIViewController {
     }
 }
 
-@objc extension ThirdVC {
+@objc extension ShareVC {
     func rateApp() {
-          if #available(iOS 14.0, *) {
-              if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
-                  SKStoreReviewController.requestReview(in: scene)
-              }
-          } else {
-              // Fallback on earlier versions
-          }
-      }
+        if #available(iOS 14.0, *) {
+            guard let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene else { return }
+            SKStoreReviewController.requestReview(in: scene)
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+
 
     func shareApp() {
         let text = "Check out this amazing app!"
-        let url = URL(string: appStoreURL)!
+        guard let url = URL(string: appStoreURL) else { return }
 
         let activityViewController = UIActivityViewController(activityItems: [text, url], applicationActivities: nil)
         present(activityViewController, animated: true, completion: nil)
     }
 
     func contactUs() {
-        if let url = URL(string: contactUsURL) {
+        guard let url = URL(string: contactUsURL) else { return }
             UIApplication.shared.open(url, options: [:])
-        }
     }
 }
 
-extension ThirdVC: ButtonCellDelegate {
+extension ShareVC: ButtonCellDelegate {
     func didTapRateButton() {
         rateApp()
     }
@@ -63,7 +62,7 @@ extension ThirdVC: ButtonCellDelegate {
     }
 }
 //MARK: Table View
-extension ThirdVC: UITableViewDataSource, UITableViewDelegate {
+extension ShareVC: UITableViewDataSource, UITableViewDelegate {
     
     func setupTableView() {
         view.addSubview(tableView)

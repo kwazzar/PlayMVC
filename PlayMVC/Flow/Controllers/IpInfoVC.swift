@@ -8,14 +8,14 @@
 import UIKit
 import MapKit
 
-final class SecondVC: UIViewController {
+final class IpInfoVC: UIViewController {
 
     private var ipInfo: IPAddressInfo?
     private let endpoint = "http://ip-api.com/json/?fields=66846719"
     private var infoArray: [(String, String)] = []
 
     init() {
-          super.init(nibName: "SecondVC", bundle: nil)
+          super.init(nibName: "IpInfoVC", bundle: nil)
       }
 
     required init?(coder aDecoder: NSCoder) {
@@ -93,7 +93,7 @@ final class SecondVC: UIViewController {
    }
 
    //MARK: updateUI
-   extension SecondVC {
+   extension IpInfoVC {
        func updateUI(with ipInfo: IPAddressInfo) {
            self.ipInfo = ipInfo
            infoArray = [
@@ -133,7 +133,7 @@ final class SecondVC: UIViewController {
    }
 
    //MARK: reloadData
-   @objc extension SecondVC {
+   @objc extension IpInfoVC {
 
        func reloadData() {
            NetworkManager.shared.loadData(endpoint: endpoint, decodeType: IPAddressInfo.self) { [weak self] (ipInfo) in
@@ -163,7 +163,7 @@ final class SecondVC: UIViewController {
    }
 
    // MARK: - UITableViewDataSource
-   extension SecondVC: UITableViewDelegate, UITableViewDataSource {
+   extension IpInfoVC: UITableViewDelegate, UITableViewDataSource {
 
        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
            return infoArray.count
@@ -173,8 +173,7 @@ final class SecondVC: UIViewController {
            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as? InfoCell
 
            let info = infoArray[indexPath.row]
-           cell?.titleInfoCellLabel.text = info.0
-           cell?.detailInfoCellLabel.text = info.1
+           cell?.configure(with: info)
            return cell ?? UITableViewCell()
        }
    }

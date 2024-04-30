@@ -33,13 +33,13 @@ class MainCoordinator: Coordinator {
 
     
     func start() {
-        let firstViewController = MainVC()
+        let firstViewController = HomeVC()
         firstViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "home1") , tag: 0)
 
-        let secondViewController = SecondVC()
+        let secondViewController = IpInfoVC()
         secondViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "map1"), tag: 1)
 
-        let thirdViewController = ThirdVC()
+        let thirdViewController = ShareVC()
         thirdViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named:  "share1"), tag: 2)
 
         rootViewController.viewControllers = [firstViewController, secondViewController, thirdViewController]

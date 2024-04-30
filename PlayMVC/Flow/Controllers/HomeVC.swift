@@ -7,9 +7,7 @@
 
 import UIKit
 
-
-
-class MainVC: UIViewController {
+final class HomeVC: UIViewController {
     private var timer = TimerObject()
     private var buttonState: ButtonState = .play
 
@@ -50,7 +48,7 @@ class MainVC: UIViewController {
 }
 
 //MARK: @objc extension
-@objc extension MainVC {
+@objc extension HomeVC {
 
     func playButtonTapped() {
         switch buttonState {

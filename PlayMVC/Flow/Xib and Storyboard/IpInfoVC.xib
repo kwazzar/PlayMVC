@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SecondVC" customModule="PlayMVC" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IpInfoVC" customModule="PlayMVC" customModuleProvider="target">
             <connections>
                 <outlet property="mapView" destination="ZUe-RI-km6" id="xYx-qZ-tJP"/>
                 <outlet property="tableView" destination="LGT-fC-7Oa" id="Fe8-Do-jGn"/>
