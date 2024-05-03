@@ -8,11 +8,11 @@
 import Foundation
 import Alamofire
 
-class NetworkManager {
+final class NetworkManager {
     static let shared = NetworkManager()
-
+    
     private init() {}
-
+    
     func loadData<T: Codable>(endpoint: String, decodeType: T.Type, completion: @escaping (T?) -> Void) {
         AF.request(endpoint, method: .get).responseDecodable(of: T.self) { (response: AFDataResponse<T>) in
             switch response.result {
@@ -31,6 +31,4 @@ class NetworkManager {
             }
         }
     }
-
-
 }

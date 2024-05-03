@@ -9,58 +9,21 @@ import UIKit
 import StoreKit
 
 final class ShareVC: UIViewController {
-
-   private let appStoreURL = "https://www.apple.com/app-store/"
-   private let contactUsURL = "https://energise.notion.site/Swift-fac45cd4d51640928ce8e7ea38552fc3"
-
+    
     let tableView = UITableView()
-
+    var buttons: [ButtonsOnShareVC] = [.rateButton, .shareButton, .contactButton]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.backgroundColor = .darkGray
         setupTableView()
+        tableView.register(ButtonCell.self, forCellReuseIdentifier: "ButtonCell")
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 }
 
-@objc extension ShareVC {
-    func rateApp() {
-        if #available(iOS 14.0, *) {
-            guard let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene else { return }
-            SKStoreReviewController.requestReview(in: scene)
-        } else {
-            // Fallback on earlier versions
-        }
-    }
-
-
-    func shareApp() {
-        let text = "Check out this amazing app!"
-        guard let url = URL(string: appStoreURL) else { return }
-
-        let activityViewController = UIActivityViewController(activityItems: [text, url], applicationActivities: nil)
-        present(activityViewController, animated: true, completion: nil)
-    }
-
-    func contactUs() {
-        guard let url = URL(string: contactUsURL) else { return }
-            UIApplication.shared.open(url, options: [:])
-    }
-}
-
-extension ShareVC: ButtonCellDelegate {
-    func didTapRateButton() {
-        rateApp()
-    }
-
-    func didTapShareButton() {
-        shareApp()
-    }
-
-    func didTapContactButton() {
-        contactUs()
-    }
-}
 //MARK: Table View
 extension ShareVC: UITableViewDataSource, UITableViewDelegate {
     
@@ -74,10 +37,6 @@ extension ShareVC: UITableViewDataSource, UITableViewDelegate {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        
-        tableView.register(ButtonCell.self, forCellReuseIdentifier: "ButtonCell")
-        tableView.dataSource = self
-        tableView.delegate = self
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -89,13 +48,24 @@ extension ShareVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return buttons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonCell", for: indexPath) as! ButtonCell
-        cell.delegate = self
-
-          return cell
-      }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonCell", for: indexPath) as? ButtonCell
+        
+        let buttonType = buttons[indexPath.row]
+        let action = buttonType.buttonAction(in: self)
+        
+        switch buttonType {
+        case .rateButton:
+            cell?.rateButton.addAction(action, for: .touchUpInside)
+        case .shareButton:
+            cell?.shareButton.addAction(action, for: .touchUpInside)
+        case .contactButton:
+            cell?.contactButton.addAction(action, for: .touchUpInside)
+        }
+        return cell ?? ButtonCell()
+    }
 }
+

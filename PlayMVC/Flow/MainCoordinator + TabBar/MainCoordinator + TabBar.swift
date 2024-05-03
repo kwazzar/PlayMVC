@@ -15,23 +15,21 @@ protocol AnyCoordinator {
 protocol Coordinator: AnyCoordinator {
     associatedtype Controller: UIViewController
     var childCoordinators: [AnyCoordinator] { get set }
-    var rootViewController: Controller { get set }
+    var tabBarController: Controller { get set }
 
     func start()
 }
 
-
 class MainCoordinator: Coordinator {
     var childCoordinators: [AnyCoordinator] = []
     var navigationController: UINavigationController
-    var rootViewController: UITabBarController
+    var tabBarController: UITabBarController
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.rootViewController = UITabBarController()
+        self.tabBarController = UITabBarController()
     }
 
-    
     func start() {
         let firstViewController = HomeVC()
         firstViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "home1") , tag: 0)
@@ -42,10 +40,10 @@ class MainCoordinator: Coordinator {
         let thirdViewController = ShareVC()
         thirdViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named:  "share1"), tag: 2)
 
-        rootViewController.viewControllers = [firstViewController, secondViewController, thirdViewController]
-        navigationController.pushViewController(rootViewController, animated: false)
+        tabBarController.viewControllers = [firstViewController, secondViewController, thirdViewController]
+        navigationController.pushViewController(tabBarController, animated: false)
 
-        rootViewController.tabBar.tintColor = UIColor.red
+        tabBarController.tabBar.tintColor = UIColor.red
     }
 }
 

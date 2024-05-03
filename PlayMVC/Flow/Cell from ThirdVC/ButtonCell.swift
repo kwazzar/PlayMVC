@@ -7,81 +7,55 @@
 
 import UIKit
 
-protocol ButtonCellDelegate: AnyObject {
-    func didTapRateButton()
-    func didTapShareButton()
-    func didTapContactButton()
-}
-
-class ButtonCell: UITableViewCell {
-    weak var delegate: ButtonCellDelegate?
-
-    private lazy var rateButton: UIButton = {
+final class ButtonCell: UITableViewCell {
+    
+    lazy var rateButton: UIButton = {
         let button = UIButton()
+        button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .darkGray
         button.setTitle("Rate App", for: .normal)
-        button.addTarget(self, action: #selector(rateButtonTapped), for: .touchUpInside)
         return button
     }()
-
-    private lazy var shareButton: UIButton = {
+    
+    lazy var shareButton: UIButton = {
         let button = UIButton()
+        button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .black
         button.setTitle("Share App", for: .normal)
-        button.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
         return button
     }()
-
-    private lazy var contactButton: UIButton = {
+    
+    lazy var contactButton: UIButton = {
         let button = UIButton()
+        button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .red
         button.setTitle("Contact Us", for: .normal)
-        button.addTarget(self, action: #selector(contactButtonTapped), for: .touchUpInside)
         return button
     }()
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupButtons()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-//MARK: SETUP
+    
+    //MARK: SETUP
     func setupButtons() {
-        [rateButton, shareButton, contactButton].forEach {
-            self.contentView.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
-
+        let stackView = UIStackView(arrangedSubviews: [rateButton, shareButton, contactButton])
+        stackView.distribution = .fillEqually
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.contentView.addSubview(stackView)
+        
         NSLayoutConstraint.activate([
-            rateButton.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            rateButton.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
-            rateButton.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-            rateButton.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 1/3),
-
-            shareButton.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            shareButton.leadingAnchor.constraint(equalTo: rateButton.trailingAnchor),
-            shareButton.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-            shareButton.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 1/3),
-
-            contactButton.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            contactButton.leadingAnchor.constraint(equalTo: shareButton.trailingAnchor),
-            contactButton.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            contactButton.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
+            stackView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
         ])
-    }
-
-    @objc func rateButtonTapped() {
-        delegate?.didTapRateButton()
-    }
-
-    @objc func shareButtonTapped() {
-        delegate?.didTapShareButton()
-    }
-
-    @objc func contactButtonTapped() {
-        delegate?.didTapContactButton()
     }
 }

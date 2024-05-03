@@ -7,37 +7,36 @@
 
 import Foundation
 
-class CacheManager {
+final class CacheManager {
     static let shared = CacheManager()
     private let fileManager = FileManager.default
     private let cacheDirectoryURL: URL
-
+    
     private init?() {
         guard let url = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first else { return nil }
         self.cacheDirectoryURL = url
     }
-
+    
     func cacheData<T: Codable>(_ object: T, for endpoint: String) {
-           let validFilename = endpoint.addingPercentEncoding(withAllowedCharacters: .alphanumerics) ?? endpoint
-           let fileURL = cacheDirectoryURL.appendingPathComponent(validFilename)
-           let encoder = JSONEncoder()
-           do {
-               let data = try encoder.encode(object)
-               try data.write(to: fileURL)
-           } catch {
-               print("Error caching data: \(error)")
-           }
-       }
-
-       func getCachedData<T: Codable>(for endpoint: String, decodeType: T.Type) -> T? {
-           let validFilename = endpoint.addingPercentEncoding(withAllowedCharacters: .alphanumerics) ?? endpoint
-           let fileURL = cacheDirectoryURL.appendingPathComponent(validFilename)
-           if fileManager.fileExists(atPath: fileURL.path), let data = try? Data(contentsOf: fileURL) {
-               let decoder = JSONDecoder()
-               let decodedObject = try? decoder.decode(T.self, from: data)
-               return decodedObject
-           }
-           return nil
-       }
-
+        let validFilename = endpoint.addingPercentEncoding(withAllowedCharacters: .alphanumerics) ?? endpoint
+        let fileURL = cacheDirectoryURL.appendingPathComponent(validFilename)
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(object)
+            try data.write(to: fileURL)
+        } catch {
+            print("Error caching data: \(error)")
+        }
+    }
+    
+    func getCachedData<T: Codable>(for endpoint: String, decodeType: T.Type) -> T? {
+        let validFilename = endpoint.addingPercentEncoding(withAllowedCharacters: .alphanumerics) ?? endpoint
+        let fileURL = cacheDirectoryURL.appendingPathComponent(validFilename)
+        if fileManager.fileExists(atPath: fileURL.path), let data = try? Data(contentsOf: fileURL) {
+            let decoder = JSONDecoder()
+            let decodedObject = try? decoder.decode(T.self, from: data)
+            return decodedObject
+        }
+        return nil
+    }
 }
