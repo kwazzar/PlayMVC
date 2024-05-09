@@ -7,55 +7,51 @@
 
 import UIKit
 
-final class ButtonCell: UITableViewCell {
-    
-    lazy var rateButton: UIButton = {
+final class ButtonCell: UICollectionViewCell {
+
+    lazy var button: UIButton = {
         let button = UIButton()
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .darkGray
-        button.setTitle("Rate App", for: .normal)
+        button.layer.cornerRadius = 10
+        button.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 30)
+        button.buttonVolume()
+        let animationButton: UIAction = UIAction { [weak self] _ in
+            button.buttonAnimation()
+        }
+        button.addAction(animationButton, for: .touchUpInside)
+
         return button
     }()
     
-    lazy var shareButton: UIButton = {
-        let button = UIButton()
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .black
-        button.setTitle("Share App", for: .normal)
-        return button
-    }()
+    var buttonType: ButtonsOnShareVC? {
+        didSet {
+            if let buttonType = buttonType {
+                button.setTitle(buttonType.buttonTitle(), for: .normal)
+                button.backgroundColor = buttonType.buttonColor()
+            }
+        }
+    }
     
-    lazy var contactButton: UIButton = {
-        let button = UIButton()
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .red
-        button.setTitle("Contact Us", for: .normal)
-        return button
-    }()
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupButtons()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupButton()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        setupButton()
     }
     
-    //MARK: SETUP
-    func setupButtons() {
-        let stackView = UIStackView(arrangedSubviews: [rateButton, shareButton, contactButton])
-        stackView.distribution = .fillEqually
-        stackView.axis = .horizontal
-        stackView.spacing = 10
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.contentView.addSubview(stackView)
+    func setupButton() {
+        button.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(button)
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
+            button.topAnchor.constraint(equalTo: contentView.topAnchor),
+            button.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
 }
+

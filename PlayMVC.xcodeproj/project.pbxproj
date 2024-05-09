@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E307FF7C2BED52D0006859D1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E307FF7E2BED52D0006859D1 /* Localizable.strings */; };
+		E307FF812BED5527006859D1 /* Extensions + UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E307FF802BED5527006859D1 /* Extensions + UIButton.swift */; };
 		E30FC4192BDBAB0D00464D32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FC4182BDBAB0D00464D32 /* AppDelegate.swift */; };
 		E30FC41B2BDBAB0D00464D32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FC41A2BDBAB0D00464D32 /* SceneDelegate.swift */; };
 		E30FC41D2BDBAB0D00464D32 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FC41C2BDBAB0D00464D32 /* HomeVC.swift */; };
@@ -14,8 +16,7 @@
 		E30FC4222BDBAB1300464D32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E30FC4212BDBAB1300464D32 /* Assets.xcassets */; };
 		E30FC4252BDBAB1300464D32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30FC4232BDBAB1300464D32 /* LaunchScreen.storyboard */; };
 		E30FC42D2BDBACAB00464D32 /* TimerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30FC42C2BDBACAB00464D32 /* TimerObject.swift */; };
-		E32F729B2BE103E900CE9A62 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E32F729D2BE103E900CE9A62 /* Localizable.strings */; };
-		E34630E12BDBE4E60062376D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34630E02BDBE4E50062376D /* Extensions.swift */; };
+		E34630E12BDBE4E60062376D /* Extensions + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34630E02BDBE4E50062376D /* Extensions + UIView.swift */; };
 		E34630E42BDBE7C80062376D /* IpInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34630E22BDBE7C80062376D /* IpInfoVC.swift */; };
 		E34630E82BDBE9FB0062376D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E34630E72BDBE9FB0062376D /* Alamofire */; };
 		E3497B6F2BDC393500179232 /* IPAddressInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3497B6E2BDC393500179232 /* IPAddressInfo.swift */; };
@@ -34,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E307FF7D2BED52D0006859D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E307FF7F2BED52E1006859D1 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E307FF802BED5527006859D1 /* Extensions + UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions + UIButton.swift"; sourceTree = "<group>"; };
 		E30FC4152BDBAB0D00464D32 /* PlayMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E30FC4182BDBAB0D00464D32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E30FC41A2BDBAB0D00464D32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,10 +47,7 @@
 		E30FC4242BDBAB1300464D32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E30FC4262BDBAB1300464D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E30FC42C2BDBACAB00464D32 /* TimerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerObject.swift; sourceTree = "<group>"; };
-		E32F729C2BE103E900CE9A62 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		E32F729E2BE1080500CE9A62 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
-		E32F729F2BE1080500CE9A62 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		E34630E02BDBE4E50062376D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E34630E02BDBE4E50062376D /* Extensions + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions + UIView.swift"; sourceTree = "<group>"; };
 		E34630E22BDBE7C80062376D /* IpInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpInfoVC.swift; sourceTree = "<group>"; };
 		E3497B6E2BDC393500179232 /* IPAddressInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAddressInfo.swift; sourceTree = "<group>"; };
 		E34DA2BE2BDD4A6D00ACF198 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
@@ -75,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E307FF702BED4C3F006859D1 /* Localize */ = {
+			isa = PBXGroup;
+			children = (
+				E307FF7E2BED52D0006859D1 /* Localizable.strings */,
+			);
+			path = Localize;
+			sourceTree = "<group>";
+		};
 		E30FC40C2BDBAB0D00464D32 = {
 			isa = PBXGroup;
 			children = (
@@ -94,13 +103,13 @@
 		E30FC4172BDBAB0D00464D32 /* PlayMVC */ = {
 			isa = PBXGroup;
 			children = (
+				E307FF702BED4C3F006859D1 /* Localize */,
 				E39F789E2BE43B4100C21DB7 /* Keys */,
 				E34DA2C12BDD4B6400ACF198 /* Flow */,
 				E33CA03A2BDD474E009AE2B8 /* Supporting filles */,
 				E383994D2BDD41CE00B3AD28 /* Models */,
 				E383994C2BDD41C600B3AD28 /* Network */,
 				E34DA2C02BDD4B0100ACF198 /* Objects and Extensions */,
-				E32F729D2BE103E900CE9A62 /* Localizable.strings */,
 			);
 			path = PlayMVC;
 			sourceTree = "<group>";
@@ -130,7 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				E30FC42C2BDBACAB00464D32 /* TimerObject.swift */,
-				E34630E02BDBE4E50062376D /* Extensions.swift */,
+				E34630E02BDBE4E50062376D /* Extensions + UIView.swift */,
+				E307FF802BED5527006859D1 /* Extensions + UIButton.swift */,
 				E3F3A1102BDE54D4005B61FA /* CacheManager.swift */,
 			);
 			path = "Objects and Extensions";
@@ -278,7 +288,7 @@
 				E3FE6DEB2BDD49B40061D387 /* IpInfoVC.xib in Resources */,
 				E34DA2BF2BDD4A6D00ACF198 /* InfoCell.xib in Resources */,
 				E30FC4252BDBAB1300464D32 /* LaunchScreen.storyboard in Resources */,
-				E32F729B2BE103E900CE9A62 /* Localizable.strings in Resources */,
+				E307FF7C2BED52D0006859D1 /* Localizable.strings in Resources */,
 				E34DA2C62BDD5DBE00ACF198 /* ButtonCell.xib in Resources */,
 				E30FC4222BDBAB1300464D32 /* Assets.xcassets in Resources */,
 				E30FC4202BDBAB0D00464D32 /* Main.storyboard in Resources */,
@@ -292,8 +302,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E307FF812BED5527006859D1 /* Extensions + UIButton.swift in Sources */,
 				E3497B6F2BDC393500179232 /* IPAddressInfo.swift in Sources */,
-				E34630E12BDBE4E60062376D /* Extensions.swift in Sources */,
+				E34630E12BDBE4E60062376D /* Extensions + UIView.swift in Sources */,
 				E3DB92672BDEA3DD00CF3F49 /* MainCoordinator + TabBar.swift in Sources */,
 				E30FC41D2BDBAB0D00464D32 /* HomeVC.swift in Sources */,
 				E39F78A02BE43B5400C21DB7 /* Keys.swift in Sources */,
@@ -314,11 +325,19 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		E307FF7E2BED52D0006859D1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E307FF7D2BED52D0006859D1 /* en */,
+				E307FF7F2BED52E1006859D1 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		E30FC41E2BDBAB0D00464D32 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E30FC41F2BDBAB0D00464D32 /* Base */,
-				E32F729E2BE1080500CE9A62 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -329,15 +348,6 @@
 				E30FC4242BDBAB1300464D32 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		E32F729D2BE103E900CE9A62 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E32F729C2BE103E900CE9A62 /* en */,
-				E32F729F2BE1080500CE9A62 /* de */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

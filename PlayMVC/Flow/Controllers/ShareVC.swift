@@ -9,63 +9,79 @@ import UIKit
 import StoreKit
 
 final class ShareVC: UIViewController {
-    
-    let tableView = UITableView()
-    var buttons: [ButtonsOnShareVC] = [.rateButton, .shareButton, .contactButton]
-    
+
+   private let collectionView: UICollectionView
+   private var buttons: [ButtonsOnShareVC] = [.rateButton, .shareButton, .contactButton]
+
+    init() {
+        let layout = UICollectionViewFlowLayout()
+        defer {
+            layout.itemSize = CGSize(width: collectionView.frame.width, height: 100)
+        }
+
+        layout.scrollDirection = .vertical
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.backgroundColor = .darkGray
-        setupTableView()
-        tableView.register(ButtonCell.self, forCellReuseIdentifier: "ButtonCell")
-        tableView.delegate = self
-        tableView.dataSource = self
-    }
-}
 
-//MARK: Table View
-extension ShareVC: UITableViewDataSource, UITableViewDelegate {
-    
-    func setupTableView() {
-        view.addSubview(tableView)
-        
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .darkGray
+        setupCollectionView()
+        collectionView.register(ButtonCell.self, forCellWithReuseIdentifier: "ButtonCell")
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+
+    func setupCollectionView() {
+        view.addSubview(collectionView)
+
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected row at index path: \(indexPath)")
+}
+//MARK: CollectionViewDelegate, ViewDataSource 
+extension ShareVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let padding: CGFloat = 10
+        let width = collectionView.frame.width - 2 * padding
+        return CGSize(width: width, height: 100)
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Selected item at index path: \(indexPath)")
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return buttons.count
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonCell", for: indexPath) as? ButtonCell
-        
+
+
+    //MARK: Button action
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCell", for: indexPath) as? ButtonCell
+
         let buttonType = buttons[indexPath.row]
+        cell?.buttonType = buttonType
         let action = buttonType.buttonAction(in: self)
-        
-        switch buttonType {
-        case .rateButton:
-            cell?.rateButton.addAction(action, for: .touchUpInside)
-        case .shareButton:
-            cell?.shareButton.addAction(action, for: .touchUpInside)
-        case .contactButton:
-            cell?.contactButton.addAction(action, for: .touchUpInside)
-        }
+
+        cell?.button.addAction(action, for: .touchUpInside)
         return cell ?? ButtonCell()
     }
 }
 
+extension ShareVC {
+}

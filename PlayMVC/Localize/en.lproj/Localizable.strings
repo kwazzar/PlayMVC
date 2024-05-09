@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  PlayMVC
+
+  Created by Quasar on 09.05.2024.
+  
+*/
+"Rate button" = "Rate App";
+"Share button" = "Share App";
+"Contact button" = "Contact Us";

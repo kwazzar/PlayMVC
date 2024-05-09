@@ -1,22 +1,11 @@
 //
-//  Extensions.swift
+//  Extensions + UIView.swift
 //  PlayMVC
 //
 //  Created by Quasar on 26.04.2024.
 //
 
-import Foundation
 import UIKit
-
-extension UIButton {
-    func setLargeImage(systemName: String) {
-        if let image = UIImage(systemName: systemName) {
-            let largeConfig = UIImage.SymbolConfiguration(pointSize: 70, weight: .bold, scale: .large)
-            let largeImage = image.applyingSymbolConfiguration(largeConfig)
-            self.setImage(largeImage, for: .normal)
-        }
-    }
-}
 
 extension UIView {
     func rotate360Degrees(duration: CFTimeInterval = 1.0, completionDelegate: AnyObject? = nil) {
