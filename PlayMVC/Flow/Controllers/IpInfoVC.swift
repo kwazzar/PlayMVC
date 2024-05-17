@@ -4,14 +4,12 @@
 //
 //  Created by Quasar on 26.04.2024.
 //
-
 import UIKit
 import MapKit
 
 final class IpInfoVC: UIViewController {
     
-    private var ipInfo: IPAddressInfo?
-    private var infoArray: [String : String] = [:]
+    private var infoDict: [String : String] = [:]
     
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -22,7 +20,7 @@ final class IpInfoVC: UIViewController {
         return refreshControl
     }()
     
-    private lazy var activityIndicator: UIActivityIndicatorView = {
+    private let activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.color = .darkGray
         indicator.hidesWhenStopped = true
@@ -63,8 +61,10 @@ final class IpInfoVC: UIViewController {
         setupTableView()
         setupActivityIndicator()
         setupReloadButton()
+        setupConstraintsForIndicatorAndReloadButton()
         reloadData()
         tableView.addSubview(refreshControl)
+        
     }
     
     private func setupTableView() {
@@ -86,6 +86,8 @@ final class IpInfoVC: UIViewController {
     private func setupReloadButton() {
         view.addSubview(reloadButton)
         reloadButton.translatesAutoresizingMaskIntoConstraints = false
+    }
+    private func setupConstraintsForIndicatorAndReloadButton() {
         NSLayoutConstraint.activate([
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -96,33 +98,34 @@ final class IpInfoVC: UIViewController {
         ])
     }
 }
+
+
 //MARK: updateUI
 extension IpInfoVC {
-    func updateUI(with ipInfo: IPAddressInfo) {
-        self.ipInfo = ipInfo
-        infoArray = ipInfo.infoDictionary
+    private  func updateUI(with ipInfo: IPAddressInfo) {
+        infoDict = ipInfo.infoDictionary
         tableView.reloadData()
         let center = ipInfo.coordinate
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
         self.mapView.setRegion(region, animated: true)
     }
     
-    func startAnimation() {
+    private func startAnimation() {
         self.activityIndicator.startAnimating()
         self.mapView.isHidden = true
         self.tableView.isHidden = true
         self.reloadButton.rotate360Degrees()
     }
     
-    func stopAnimation() {
+    private func stopAnimation() {
         self.mapView.isHidden = false
         self.tableView.isHidden = false
         self.activityIndicator.stopAnimating()
         self.reloadButton.layer.removeAllAnimations()
     }
     //MARK: reloadData
-    func reloadData() {
-        NetworkManager.shared.loadData(endpoint: endpoint, decodeType: IPAddressInfo.self) { [weak self] (ipInfo) in
+    private func reloadData() {
+        NetworkManager.shared.loadData(endpoint: KeysUrl.endpoint.key, decodeType: IPAddressInfo.self) { [weak self] (ipInfo) in
             guard let strongSelf = self else { return }
             DispatchQueue.main.async {
                 strongSelf.startAnimation()
@@ -134,9 +137,10 @@ extension IpInfoVC {
                     strongSelf.stopAnimation()
                 }
             } else {
-                if let cachedIPInfo: IPAddressInfo = CacheManager.shared?.getCachedData(for: endpoint, decodeType: IPAddressInfo.self) {
+                if let cachedIPInfo: IPAddressInfo = CacheManager.shared.getCachedData(for: KeysUrl.endpoint.key, decodeType: IPAddressInfo.self) {
                     DispatchQueue.main.async {
                         strongSelf.updateUI(with: cachedIPInfo)
+                        strongSelf.stopAnimation()
                     }
                     print("get Cached")
                 }
@@ -144,7 +148,7 @@ extension IpInfoVC {
         }
     }
     //MARK: Refresh
-    func handleRefresh(_ refreshControl: UIRefreshControl) {
+    private func handleRefresh(_ refreshControl: UIRefreshControl) {
         reloadData()
         refreshControl.endRefreshing()
     }
@@ -154,15 +158,19 @@ extension IpInfoVC {
 extension IpInfoVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return infoArray.count
+        return infoDict.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as? InfoCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as? InfoCell else {
+            return InfoCell()
+        }
         
-        let infoKey = Array(infoArray.keys)[indexPath.row]
-        let infoValue = infoArray[infoKey]
-        cell?.configure(with: (infoKey, infoValue ?? ""))
-        return cell ?? InfoCell()
+        let infoKey = Array(infoDict.keys)[indexPath.row]
+        let infoValue = infoDict[infoKey]
+        
+        cell.configure(infokey: infoKey, infoValue: infoValue)
+        
+        return cell
     }
 }

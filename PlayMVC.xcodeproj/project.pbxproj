@@ -125,14 +125,14 @@
 			path = "Supporting filles";
 			sourceTree = "<group>";
 		};
-		E33CA03B2BDD4868009AE2B8 /* Xib and Storyboard */ = {
+		E33CA03B2BDD4868009AE2B8 /* IpInfoVC  Xib and Storyboard */ = {
 			isa = PBXGroup;
 			children = (
 				E3FE6DEA2BDD49B40061D387 /* IpInfoVC.xib */,
 				E30FC41E2BDBAB0D00464D32 /* Main.storyboard */,
 				E30FC4232BDBAB1300464D32 /* LaunchScreen.storyboard */,
 			);
-			path = "Xib and Storyboard";
+			path = "IpInfoVC  Xib and Storyboard";
 			sourceTree = "<group>";
 		};
 		E34DA2C02BDD4B0100ACF198 /* Objects and Extensions */ = {
@@ -152,7 +152,7 @@
 				E39418A62BDEE41B00D454F7 /* MainCoordinator + TabBar */,
 				E34DA2C42BDD5D5B00ACF198 /* Cell from ThirdVC */,
 				E3FE6DEC2BDD49F90061D387 /* Cell from SecondVC */,
-				E33CA03B2BDD4868009AE2B8 /* Xib and Storyboard */,
+				E33CA03B2BDD4868009AE2B8 /* IpInfoVC  Xib and Storyboard */,
 				E383994B2BDD3F4F00B3AD28 /* Controllers */,
 			);
 			path = Flow;

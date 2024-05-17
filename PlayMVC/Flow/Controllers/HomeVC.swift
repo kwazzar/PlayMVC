@@ -4,10 +4,10 @@
 //
 //  Created by Quasar on 26.04.2024.
 //
-
 import UIKit
 
 final class HomeVC: UIViewController {
+    
     private var timer = TimerObject()
     private var buttonState: ButtonState = .play
     
@@ -20,6 +20,7 @@ final class HomeVC: UIViewController {
         button.setLargeImage(systemName: "play.fill")
         let action = UIAction { [weak self] _ in
             self?.playButtonTapped()
+            
         }
         button.addAction(action, for: .touchUpInside)
         return button
@@ -50,11 +51,8 @@ final class HomeVC: UIViewController {
         super.viewDidAppear(animated)
         
         playButton.center = view.center
-        let labelWidth: CGFloat = 200
-        let labelHeight: CGFloat = 50
-        let xPosition = (self.view.frame.width - labelWidth) / 2
-        timerLabel.frame = CGRect(x: xPosition, y: 40, width: labelWidth, height: labelHeight)
         playButton.pulsate()
+        frameForTimerLabel()
     }
     
     //MARK: Setup
@@ -62,23 +60,40 @@ final class HomeVC: UIViewController {
         view.addSubview(playButton)
         view.addSubview(timerLabel)
     }
-}
-
-extension HomeVC {
-    func playButtonTapped() {
+    
+    private func playButtonTapped() {
         switch buttonState {
         case .play:
             buttonState = .pause
-            playButton.setLargeImage(systemName: "pause.fill")
-            playButton.layer.removeAllAnimations()
-            timerLabel.pulsate()
-            timer.startTimer()
+            handlePlayState()
         case .pause:
             buttonState = .play
-            playButton.setLargeImage(systemName: "play.fill")
-            timerLabel.layer.removeAllAnimations()
-            playButton.pulsate()
-            timer.stopTimer()
+            handlePauseState()
         }
+    }
+    
+}
+//MARK: Extension
+extension HomeVC {
+    private func handlePlayState() {
+        playButton.layer.removeAllAnimations()
+        playButton.setLargeImage(systemName: "pause.fill")
+        timerLabel.pulsate()
+        timer.startTimer()
+    }
+    
+    private func handlePauseState() {
+        timerLabel.layer.removeAllAnimations()
+        playButton.setLargeImage(systemName: "play.fill")
+        playButton.pulsate()
+        timer.stopTimer()
+    }
+    
+    private func frameForTimerLabel() {
+        let labelWidth: CGFloat = 200
+        let labelHeight: CGFloat = 50
+        let yPosition: CGFloat = 40
+        let xPosition = (self.view.frame.width - labelWidth) / 2
+        timerLabel.frame = CGRect(x: xPosition, y: yPosition, width: labelWidth, height: labelHeight)
     }
 }

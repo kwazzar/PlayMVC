@@ -1,10 +1,9 @@
 //
-//  .swift
+//  Extensions + UIButton.swift
 //  PlayMVC
 //
 //  Created by Quasar on 09.05.2024.
 //
-
 import UIKit
 
 extension UIButton {
@@ -18,7 +17,7 @@ extension UIButton {
 }
 
 extension UIButton {
-    func buttonAnimation() {
+    func buttonAnimationTapped() {
         UIView.animate(withDuration: 0.1, animations: {
             self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
         }) { _ in
@@ -30,7 +29,7 @@ extension UIButton {
 }
 
 extension UIButton {
-    func buttonVolume() {
+    func buttonShadowAndVolume() {
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
         self.layer.shadowRadius = 8

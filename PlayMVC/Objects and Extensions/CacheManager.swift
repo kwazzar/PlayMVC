@@ -4,18 +4,18 @@
 //
 //  Created by Quasar on 28.04.2024.
 //
-
 import Foundation
 
 final class CacheManager {
     static let shared = CacheManager()
     private let fileManager = FileManager.default
-    private let cacheDirectoryURL: URL
-    
-    private init?() {
-        guard let url = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first else { return nil }
-        self.cacheDirectoryURL = url
-    }
+    private lazy var cacheDirectoryURL: URL = {
+        if let url = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first {
+            return url
+        } else {
+            fatalError("Unable to access the cache directory.")
+        }
+    }()
     
     func cacheData<T: Codable>(_ object: T, for endpoint: String) {
         let validFilename = endpoint.addingPercentEncoding(withAllowedCharacters: .alphanumerics) ?? endpoint

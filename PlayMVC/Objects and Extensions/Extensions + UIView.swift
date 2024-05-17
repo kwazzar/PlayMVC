@@ -4,21 +4,17 @@
 //
 //  Created by Quasar on 26.04.2024.
 //
-
 import UIKit
 
 extension UIView {
-    func rotate360Degrees(duration: CFTimeInterval = 1.0, completionDelegate: AnyObject? = nil) {
+    func rotate360Degrees(duration: TimeInterval = 1.0, repeatForever: Bool = true) {
         let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
         rotateAnimation.fromValue = 0.0
         rotateAnimation.toValue = CGFloat(Double.pi * 2.0)
         rotateAnimation.duration = duration
-        rotateAnimation.repeatCount = .greatestFiniteMagnitude
+        rotateAnimation.repeatCount = repeatForever ? .greatestFiniteMagnitude : 0
         
-        if let delegate: AnyObject = completionDelegate {
-            rotateAnimation.delegate = (delegate as! any CAAnimationDelegate)
-        }
-        self.layer.add(rotateAnimation, forKey: nil)
+        layer.add(rotateAnimation, forKey: "rotate360Degrees")
     }
 }
 
